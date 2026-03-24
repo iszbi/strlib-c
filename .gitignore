@@ -1,3 +1,10 @@
 bin/
 build/
 tmp/
+**/*.[oa]
+**/*.obj
+*~
+# this is here because I have a home directory name and hostname that my classmates would ask questions about if I work on this at school
+# so I have some batch files that build the test harness and it suppresses the path in the title bar and my home directory being printed
+classmate_proof* 
+**/*.exe

@@ -6,11 +6,11 @@
 #include <malloc.h> 
 
 // use the my_* namespace to make sure it doesn't just call the libc ones
-size_t my_strlen(const char*);
-char *my_strcat(char*, const char*);
-char *my_strcpy(char*, const char*);
-int my_strcmp(const char*, const char*);
-char *my_strstr(const char*, const char*);
-char *my_strchr(const char *, int)
+size_t my_strlen(const char *str);
+char *my_strcat(char *dest, const char *src);
+char *my_strcpy(char *dest, const char *src);
+int my_strcmp(const char *str1, const char *str2);
+char *my_strstr(const char *str, const char *substr);
+char *my_strchr(const char *str, int chr);
 
 #endif // MY_STRING_H

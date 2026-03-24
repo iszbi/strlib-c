@@ -7,7 +7,7 @@ This implementation only uses C Standard Library (libc). No other external libra
 ## Usage 
 **⚠️ Please do not use this in production code!**
 This is just a small learning passion project of mine; please use your compiler's implementation as that has been rigourously tested and optimised. While I've tried my best to eliminate bugs and edge cases, I cannot guarantee full stability.
----
+
 Every function works the same as the corresponding libc function (or at least intends to), so arguments and return type are all the same. Each function is under the `my_*` namespace prefix, so for example `strcat` becomes `my_strcat`. 
 
 

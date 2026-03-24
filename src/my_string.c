@@ -1,9 +1,9 @@
 #include "my_string.h"
 
 size_t my_strlen(const char *str) {
-    size_t i = 0;
-    while(*(str + (++i)));
-    return i;
+    const char *origin = str;
+    while(*str++);
+    return str - origin - 1;
 }
 
 // nyaaaa~ :3
@@ -24,24 +24,22 @@ char *my_strcpy(char *dest, const char *src) {
 }
 
 int my_strcmp(const char *str1, const char *str2) {
-    while(*str1++ == *str2++ && str1 != '\0' && str2 != '\0');
-    return (*str1) - (*str2);
+    while(*str1 == *str2 && *str1) {
+        str1++;
+        str2++;
+    }
+    return *str1 - *str2;
 }
 
 char *my_strchr(const char *str, int chr) {
-    while(*str++ != chr) {
+    while(*str != chr) {
         if(*str == '\0') return NULL;
+        str++;
     }
-    return str - 1;
+    return (char *)str; // cast away const
 }
 
 char *my_strstr(const char *str, const char *substr) {
-    /*
-     walk through bytes
-     if str at current byte == substr first character
-        start matching
-     */
-
     int is_matching = 0;
     size_t subindex = 0;
     while(*str != '\0') {
@@ -51,7 +49,7 @@ char *my_strstr(const char *str, const char *substr) {
 
         if(is_matching) {
             if(substr[subindex] == '\0') {
-                return str - subindex;
+                return (char *)(str - subindex); // cast away const
             }
 
             if(*str != substr[subindex++]) {
