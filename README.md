@@ -10,14 +10,31 @@ This is just a small learning passion project of mine; please use your compiler'
 
 Every function works the same as the corresponding libc function (or at least intends to), so arguments and return type are all the same. Each function is under the `my_*` namespace prefix, so for example `strcat` becomes `my_strcat`. 
 
+To use the functions, include it in your source file:
+`#include "my_string.h"`
 
+When compiling, pass the `include` directory as an include directory and `src/my_string.c` as a source file. Check your compiler documentation on how to do this. For example, using GCC that would be `gcc -o my_program -Iinclude my_source.c src/my_string.c`. Adjust `include` and `src/my_string.c` as needed. 
 
 ### Building the test harness
-I've also included a sample test harness I used to test my implementation. I've only tested it with gcc (MinGW and MSYS2 on Windows), but there shouldn't be any other issues with other compilers.
+I've also included a sample test harness I used to test my implementation.
 
-To build the test harness:
-`gcc harness.c my_string.c -o test`
-Rename `test` as needed.
+#### Linux users
+Navigate to the root of the repo (where `Makefile` is) and run `make`, and optionally run `make clean` to clean up intermediate files. The executable will be put in the `bin` directory. By default, the makefile will use GCC. You can change `$(CC)` to your chosen compiler and adjust the flags.
+
+#### macOS users
+You will need to install GNU Make. **The Xcode `make` will not work as it is BSD Make.**
+Install [Homebrew](https://brew.sh/) if you don't have it, and install GNU Make like so:
+`brew install make`
+
+Then follow the [Linux users](#linux-users) instructions, substituting `gmake` for `make`.
+Optionally, if you would like to link `make` to GNU Make, make sure Homebrew's bin directory takes priority in your PATH.
+
+#### Windows users
+If you have MSYS2, you can follow the steps listed for [Linux systems](#linux-users).
+
+Otherwise, you will have to compile manually with your chosen compiler. For example, with MSVC would be:
+`cl /Fe:bin\harness /Wall /Iinclude src\harness.c src\my_string.c`
+
 
 ## Functions implemented
 ### String manipulation
@@ -57,7 +74,7 @@ Rename `test` as needed.
 | memccpy    | No ❌        |
 
 ## Contributing
-Pull requests are welcome! However, please remember that this is a passion project that isn't meant to be designed to be used in production code, so please make sure all code is portable. Otherwise, feel free to correct any edge cases or errors in my code.
+Pull requests are welcome! However, please remember that this is a learning project that isn't meant to be the most optimised or fastest implementation possible, so please make sure all code is portable. Otherwise, feel free to correct any edge cases or errors in my code.
 
 ## Background
 ### Why did I make this?

@@ -4,7 +4,9 @@ tmp/
 **/*.[oa]
 **/*.obj
 *~
-# this is here because I have a home directory name and hostname that my classmates would ask questions about if I work on this at school
+# this is here for when I work on this at school because I have a home directory name and hostname that my classmates would ask questions about
 # so I have some batch files that build the test harness and it suppresses the path in the title bar and my home directory being printed
+# it's not included because it's windows only and makes a lot of assumptions about paths and envrionment and stuff
+# just use the Makefile
 classmate_proof* 
 **/*.exe
