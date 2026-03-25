@@ -2,13 +2,13 @@
 A from-scratch portable implementation of C's string.h header.
 
 ## Installation
-This implementation only uses C Standard Library (libc). No other external libraries are needed. All you need is a C99 compatible compiler (and if your compiler doesn't support C99, please get a new compiler).
+This implementation only uses C Standard Library (libc). No other external libraries are needed. All you need is a compiler that supports C99 or later (and if your compiler doesn't support C99 or later, please get a new compiler).
 
 ## Usage 
 **⚠️ Please do not use this in production code!**
 This is just a small learning passion project of mine; please use your compiler's implementation as that has been rigourously tested and optimised. While I've tried my best to eliminate bugs and edge cases, I cannot guarantee full stability.
 
-Every function works the same as the corresponding libc function (or at least intends to), so arguments and return type are all the same. Each function is under the `my_*` namespace prefix, so for example `strcat` becomes `my_strcat`. 
+This implementation is libc-conformant, so arguments and return type are all the same. Each function is under the `my_*` namespace prefix, so for example `strcat` becomes `my_strcat`. 
 
 To use the functions, include it in your source file:
 `#include "my_string.h"`
@@ -34,7 +34,6 @@ If you have MSYS2, you can follow the steps listed for [Linux systems](#linux-us
 
 Otherwise, you will have to compile manually with your chosen compiler. For example, with MSVC would be:
 `cl /Fe:bin\harness /Wall /Iinclude src\harness.c src\my_string.c`
-
 
 ## Functions implemented
 ### String manipulation
@@ -78,9 +77,9 @@ Pull requests are welcome! However, please remember that this is a learning proj
 
 ## Background
 ### Why did I make this?
-**Because yes, compiler implementations will be miles ahead of mine.** This is a bit of a small passion project of mine, and it's given me the opportunity to learn more about memory by working with lots of pointers and raw bytes. It also gives me better insight on how libc works under the hood, and overall I think it's really helped with my low level skills. I've made a GitHub repo for this because I'd like to share how I've gone about implementing the different functions.
+**Because yes, compiler implementations will be miles ahead of mine.** This is a bit of a small passion project of mine, and it's given me the opportunity to learn more about memory by working with lots of pointers and raw bytes. It also gives me better insight on how libc works under the hood, and overall I think it's really helped with my low level skills. I've made a GitHub repo for this because I'd like to share how I've gone about implementing everything.
 
-`string.h` especially is nice starting point to learning how C works under the hood because it's not too difficult and you're still working directly with memory yourself. I recommend anyone who wants to learn more about C or memory to try write an implementation of `string.h` as well!
+`string.h` especially is nice starting point to learning how C works under the hood because it's not too difficult and you're still working directly with memory yourself. I recommend anyone who wants to learn more about C or memory to try write their own implementation of `string.h` as well!
 
 ### Why shouldn't I use this in production code?
 See [Usage](#usage).
