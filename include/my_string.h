@@ -12,5 +12,7 @@ char *my_strcpy(char *dest, const char *src);
 int my_strcmp(const char *str1, const char *str2);
 char *my_strstr(const char *str, const char *substr);
 char *my_strchr(const char *str, int chr);
+char *my_strdup(const char *str);
+size_t my_strspn(const char *str, const char *spn);
 
 #endif // MY_STRING_H

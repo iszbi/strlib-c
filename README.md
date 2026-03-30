@@ -8,7 +8,7 @@ This implementation only uses C Standard Library (libc). No other external libra
 **⚠️ Please do not use this in production code!**
 This is just a small learning passion project of mine; please use your compiler's implementation as that has been rigourously tested and optimised. While I've tried my best to eliminate bugs and edge cases, I cannot guarantee full stability.
 
-This implementation is libc-conformant, so arguments and return type are all the same. Each function is under the `my_*` namespace prefix, so for example `strcat` becomes `my_strcat`. 
+This implementation is libc-conformant with some POSIX extensions, so arguments and return type are all the same. Each function is under the `my_*` namespace prefix, so for example `strcat` becomes `my_strcat`. 
 
 To use the functions, include it in your source file:
 `#include "my_string.h"`
@@ -44,7 +44,7 @@ Otherwise, you will have to compile manually with your chosen compiler. For exam
 | strcat     | Yes ✅      |
 | strncat    | No ❌       |
 | strxfrm    | No ❌       |
-| strdup     | No ❌       |
+| strdup     | Yes ✅      |
 | strndup    | No ❌       |
 
 ### String examination

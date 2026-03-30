@@ -6,7 +6,7 @@ BIN = ./bin
 _DEPS = my_string.h
 DEPS = $(patsubst %, $(IDIR)/%, $(_DEPS))
 
-_OBJ = harness.o my_string.o
+_OBJ = my_string.o harness.o
 OBJ = $(patsubst %, $(ODIR)/%, $(_OBJ))
 
 CC = gcc
@@ -16,7 +16,12 @@ $(ODIR)/%.o: $(SRC)/%.c $(DEPS)
 	mkdir -p $(ODIR)
 	$(CC) -c -o $@ $(CFLAGS) $<
 
-harness: $(OBJ)
+harness: $(OBJ)	
+	mkdir -p $(BIN)
+	$(CC) -o $(patsubst %, $(BIN)/%, $@) $(CFLAGS) $^
+
+# workbench file - for debugging individual functions
+workbench: $(SRC)/workbench.c $(SRC)/my_string.c
 	mkdir -p $(BIN)
 	$(CC) -o $(patsubst %, $(BIN)/%, $@) $(CFLAGS) $^
 
